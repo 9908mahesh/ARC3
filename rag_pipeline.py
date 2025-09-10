@@ -54,11 +54,11 @@ def ingest_pdfs_and_get_retriever(file_paths: List[str], chunk_size: int, chunk_
     large_chunks = chunk_document_text_large(all_docs)
     
     # Create the vector store
+    # ⚠️ We are removing the DuckDB client settings to avoid the RuntimeError
     vectorstore = Chroma.from_documents(
         documents=small_chunks,
         embedding=embedding_model,
-        persist_directory=CHROMA_DIR,
-        client_settings={"chroma_db_impl": "duckdb+parquet"}
+        persist_directory=CHROMA_DIR
     )
     
     # Create ParentDocumentRetriever
