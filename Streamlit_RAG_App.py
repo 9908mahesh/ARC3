@@ -12,7 +12,7 @@ style_app()
 
 # --- Title ---
 st.title("📚 Arc — AI Research Companion")
-st.markdown("A private & powerful research assistant using RAG with HuggingFace + ChromaDB")
+st.markdown("A private & powerful research assistant using RAG with a local LLM + ChromaDB")
 
 # --- Sidebar ---
 with st.sidebar:
@@ -20,7 +20,7 @@ with st.sidebar:
     st.markdown("---")
     st.write(f"**Current Vector DB:** `{CHROMA_DIR}`")
     st.markdown("---")
-    st.markdown("Powered by `google/flan-t5-small`")
+    st.markdown("Powered by `TheBloke/Mistral-7B-Instruct-v0.1-GGUF`")
 
 # --- Section 1: PDF Ingestion ---
 st.header("1) Upload & Ingest PDFs")
@@ -103,4 +103,4 @@ else:
                 st.error(f"Summarization failed: {e}")
 
 st.markdown("---")
-st.caption("Arc • Academic Research with RAG • Powered by HuggingFace + ChromaDB")
+st.caption("Arc • Academic Research with RAG • Powered by a local LLM + ChromaDB")
